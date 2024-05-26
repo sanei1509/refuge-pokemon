@@ -1,8 +1,11 @@
-//
-//  PokemonModel.swift
-//  refugio-pokemon
-//
-//  Created by Santiago Neira on 5/26/24.
-//
+import SwiftUI
 
-import Foundation
+struct ModelPokemon: Decodable {
+    var count: Int
+    var results: [Pokemon]
+}
+
+struct Pokemon: Decodable {
+    var name: String
+    var url: String
+}

@@ -1,8 +1,20 @@
-//
-//  AccountView.swift
-//  refugio-pokemon
-//
-//  Created by Santiago Neira on 5/25/24.
-//
+import SwiftUI
+import FirebaseAuth
 
-import Foundation
+struct Account: View {
+    @EnvironmentObject var loginShow: FirebaseViewModel
+    @StateObject var login = FirebaseViewModel()
+    
+    var body: some View {
+        VStack {
+            Button(action: {
+                        try! Auth.auth().signOut()
+                        UserDefaults.standard.removeObject(forKey: "sesion")
+                        loginShow.show = false
+            }){
+                Text("Cerrar sesión")
+            }
+            
+        }.navigationTitle("Ajustes")
+    }
+}

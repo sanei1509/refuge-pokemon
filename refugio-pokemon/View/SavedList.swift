@@ -1,8 +1,11 @@
-//
-//  SavedList.swift
-//  refugio-pokemon
-//
-//  Created by Santiago Neira on 5/25/24.
-//
+import SwiftUI
 
-import Foundation
+struct SavedList: View {
+    
+    var body: some View {
+        VStack{
+            Text("Mi lista de guardados").font(.title)
+        }
+        .navigationTitle("Mis guardados")
+    }
+}

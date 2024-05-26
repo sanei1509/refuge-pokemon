@@ -1,21 +1,25 @@
-//
-//  ContentView.swift
-//  refugio-pokemon
-//
-//  Created by Santiago Neira on 5/25/24.
-//
-
 import SwiftUI
+import FirebaseAuth
 
 struct ContentView: View {
+    @EnvironmentObject var loginShow: FirebaseViewModel
+    @StateObject var pokemon = PokemonViewModel()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        return Group {
+            if loginShow.show {
+                //HOME SCREEN
+                MainTabView()
+            } else {
+                Login()
+                    .edgesIgnoringSafeArea(.all)
+                    .preferredColorScheme(.light)
+            }
+        }.onAppear {
+            if (UserDefaults.standard.object(forKey: "sesion")) != nil {
+                loginShow.show = true
+            }
         }
-        .padding()
     }
 }
 

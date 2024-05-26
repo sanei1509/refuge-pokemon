@@ -1,0 +1,14 @@
+# Xcode
+.DS_Store
+build/
+DerivedData/
+
+# User-specific files
+*.xcuserstate
+*.xcscmblueprint
+
+# Workspace
+xcuserdata/
+
+# Scheme management
+xcshareddata/xcschemes/xcschememanagement.plist
